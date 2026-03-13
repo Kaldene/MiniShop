@@ -1,10 +1,13 @@
 from flask import Flask
+from config import Config
 from models import db
+from routes.auth.register import auth_bp
 
 app = Flask(__name__)
-app.config.from_object('config.Config')
+app.config.from_object(Config)
 
 db.init_app(app)
+app.register_blueprint(auth_bp)
 
 if __name__ == '__main__':
     with app.app_context():

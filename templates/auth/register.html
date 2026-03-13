@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+MiniShop | Регистрация
+{% endblock %}
+
+{% block content %}
+<section class="section-register">
+    <div class="container-register">
+        <form method="post" action="{{ url_for('auth.register') }}">
+            <h2>Регистрация</h2>
+
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Подтвердите пароль</label>
+                <input type="password" id="confirm_password" name="confirm_password">
+            </div>
+
+            <div class="register-btn">
+                <button type="submit">Зарегистрироваться</button>
+                <p>Уже есть аккаунт? <a href="{{url_for(auth.login)}}">Войти</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
