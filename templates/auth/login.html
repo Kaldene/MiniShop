@@ -1,9 +1,32 @@
-{% extends base.html%}
+{% extends 'base.html' %}
 
 {% block title %}
-MiniShop | вход
+MiniShop | Вход
 {% endblock %}
 
-{% block content%}
+{% block content %}
+<section class="section-login">
+    <div class="container-login">
+        <form method="post" action="{{ url_for('auth.login') }}">
 
-{%end block%}
+            <h2>Вход</h2>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="login-btn">
+                <button type="submit">Войти</button>
+                <p>Нет аккаунта? <a href="{{ url_for('auth.register') }}">Зарегистрироваться</a></p>
+            </div>
+
+        </form>
+    </div>
+</section>
+{% endblock %}

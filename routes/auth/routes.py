@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_required, current_user, login_user, logout_user
 from models import db, User
 
 auth_bp = Blueprint('auth', __name__)
@@ -41,6 +42,9 @@ def register():
             )
             db.session.add(new_user)
             db.session.commit()
+
+            login_user(new_user, remember=True)
+
             flash('Пользователь успешно создан', 'success')
             return redirect(url_for('auth.register'))
 
@@ -50,3 +54,37 @@ def register():
             return redirect(url_for('auth.register'))
 
     return render_template('auth/register.html')
+
+
+@auth_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        if not email or not password:
+            flash("Заполните поля", "error")
+            return redirect(url_for('auth.login'))
+
+        user = User.query.filter_by(email=email).first()
+
+        if not user:
+            flash("Пользователь не найден", "error")
+            return redirect(url_for('auth.login'))
+
+        if not check_password_hash(user.password_hash, password):
+            flash("Неверный пароль", "error")
+            return redirect(url_for('auth.login'))
+
+        login_user(user, remember=True)
+        flash("Вы успешно вошли", "success")
+        return redirect(url_for('auth.login'))  # потом заменишь на главную
+
+    return render_template('auth/login.html')
+
+
+@auth_bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('auth.login'))

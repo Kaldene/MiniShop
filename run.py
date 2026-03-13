@@ -1,7 +1,7 @@
 from flask import Flask
 from config import Config
 from models import db
-from routes.auth.register import auth_bp
+from routes.auth.routes import auth_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
