@@ -5,5 +5,46 @@ MiniShop | Главная
 {% endblock %}
 
 {% block content %}
-<h2>Главная</h2>
+<section class="hero">
+    <div class="hero-contaiener">
+        <div class="hero-content">
+            <h2>Пополнение баланса Стима</h2>
+            <p>Моментальное пополнение кошелька Steam</p>
+            <img src="{{url_for('static', filename='images/steam.jpg')}}" alt="Steam"> <!-- Потом поменять-->
+        </div>
+    </div>
+</section>
+<section class="replenishment">
+    <div class="replenishment-container">
+        <form action="" method="POST" class="replenishment-card">
+
+            <div class="replenishment-form">
+                <label for="login">Укажите логин Steam</label>
+                <input type="text" name="login" id="login" placeholder="Логин Steam">
+            </div>
+
+            <div class="replenishment-form">
+                <label for="amount">Укажите сумму пополнения</label>
+                <input type="number" name="amount" id="amount" min="1" step="1" placeholder="Введите сумму">
+            </div>
+
+            <div class="currency-select">
+                <button type="button" class="active">🇷🇺 RUB</button>
+                <button type="button">🇰🇿 KZT</button>
+                <button type="button">🇺🇸 USD</button>
+            </div>
+
+            <input type="hidden" name="currency" id="currency" value="RUB">
+
+            <div class="replenishment-submit">
+                <button type="submit">Купить</button>
+            </div>
+
+        </form>
+    </div>
+</section>
+<section class="reviews">
+    <f
+</section>
+
 {% endblock %}

@@ -12,17 +12,13 @@
 <header>
     <div class="header">
         <div class="header-container">
-            <div class="logo">
-                <a href="{{url_for('main.home')}}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="MiniShop logo"></a>
-            </div>
+            <div class="logo">MiniShop</div>
 
             <nav class="menu">
                 <ul>
                     <li><a href="{{url_for('main.home')}}">Главная</a></li>
                     <li><a href="#">Каталог</a></li>
-                    <li><a href="#">Акции</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Корзина</a></li>
+
 
                     {% if current_user.is_authenticated %}
                     <li><a href="#">Профиль</a></li>

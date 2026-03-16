@@ -89,7 +89,7 @@ def login():
 
         login_user(user, remember=True)
         flash('Вы успешно вошли', 'success')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.home'))
 
     return render_template('auth/login.html')
 
