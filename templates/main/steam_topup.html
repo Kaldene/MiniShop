@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+
+{% block title %}
+MiniShop | Пополнение steam
+{% endblock %}
+
+{% block content %}
+<section class="steam-page">
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-top">
+                <div class="hero-text">
+                    <span class="hero-badge">Быстро · Надёжно · Удобно</span>
+                    <h1>Мгновенное пополнение Steam</h1>
+                    <p>
+                        Пополняйте баланс Steam за 10–30 секунд через СБП.
+                        Укажите логин, выберите сумму и получите деньги на аккаунт.
+                    </p>
+                </div>
+
+                <div class="hero-form-card">
+                    <form action="" method="POST" class="replenishment-card">
+                        <h2>Пополнение баланса</h2>
+
+                        <div class="replenishment-form">
+                            <label for="login">Укажите логин Steam</label>
+                            <input type="text" name="login" id="login" placeholder="Логин Steam">
+                        </div>
+
+                        <div class="replenishment-form">
+                            <label>Выберите сумму</label>
+                            <div class="amount-buttons">
+                                <button type="button" class="amount-btn active" data-amount="500">500 ₽</button>
+                                <button type="button" class="amount-btn" data-amount="1000">1000 ₽</button>
+                                <button type="button" class="amount-btn" data-amount="2000">2000 ₽</button>
+                            </div>
+                        </div>
+
+                        <div class="replenishment-form">
+                            <label for="amount">Или введите свою сумму</label>
+                            <input type="number" name="amount" id="amount" min="100" max="15000" step="1" placeholder="Введите сумму">
+                        </div>
+
+                        <div class="currency-select">
+                            <button type="button" class="currency-btn active" data-currency="RUB">🇷🇺 RUB</button>
+                            <button type="button" class="currency-btn" data-currency="KZT">🇰🇿 KZT</button>
+                            <button type="button" class="currency-btn" data-currency="USD">🇺🇸 USD</button>
+                        </div>
+
+                        <input type="hidden" name="currency" id="currency" value="RUB">
+
+                        <div class="replenishment-result">
+                            <span>К зачислению:</span>
+                            <strong>~950 ₽</strong>
+                        </div>
+
+                        <div class="replenishment-submit">
+                            <button type="submit">Пополнить баланс</button>
+                        </div>
+
+                        <p class="replenishment-note">QR появится после создания платежа</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Как это работает</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">👤</div>
+                    <h3>Введите логин Steam</h3>
+                    <p>Укажите логин вашего аккаунта для пополнения.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon">💳</div>
+                    <h3>Оплатите через СБП</h3>
+                    <p>Создайте платёж и оплатите заказ за несколько секунд.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-icon">⚡</div>
+                    <h3>Получите деньги</h3>
+                    <p>Средства поступят на аккаунт почти мгновенно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-grid-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h2>Последние пополнения</h2>
+                    <div class="transactions-list">
+                        <div class="transaction-item">
+                            <span>user****</span>
+                            <strong>1000 ₽</strong>
+                            <small>12 сек назад</small>
+                        </div>
+                        <div class="transaction-item">
+                            <span>play****</span>
+                            <strong>500 ₽</strong>
+                            <small>40 сек назад</small>
+                        </div>
+                        <div class="transaction-item">
+                            <span>game****</span>
+                            <strong>2000 ₽</strong>
+                            <small>1 мин назад</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h2>Наши достижения</h2>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <strong>125 000+</strong>
+                            <span>Пополнений</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>10 секунд</strong>
+                            <span>Среднее время</span>
+                        </div>
+                        <div class="stat-box full">
+                            <strong>24/7</strong>
+                            <span>Поддержка</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-card">
+                <h2 class="section-title">FAQ</h2>
+
+                <div class="faq-item">
+                    <h3>Это безопасно?</h3>
+                    <p>Да, платежи проходят через СБП, а все операции фиксируются в системе.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Сколько идёт пополнение?</h3>
+                    <p>Обычно пополнение занимает от 10 до 30 секунд после оплаты.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Что делать, если деньги не пришли?</h3>
+                    <p>Обратитесь в поддержку и сообщите номер заказа.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>
+
+<script>
+    const amountButtons = document.querySelectorAll('.amount-btn');
+    const amountInput = document.getElementById('amount');
+
+    amountButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            amountButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            amountInput.value = button.dataset.amount;
+        });
+    });
+
+    const currencyButtons = document.querySelectorAll('.currency-btn');
+    const currencyInput = document.getElementById('currency');
+
+    currencyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            currencyButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currencyInput.value = button.dataset.currency;
+        });
+    });
+</script>
+{% endblock %}

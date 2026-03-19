@@ -16,9 +16,9 @@
 
             <nav class="menu">
                 <ul>
+                    <li><a href="{{url_for('main.steam_topup')}}">Пополнить баланс</a></li>
                     <li><a href="{{url_for('main.home')}}">Главная</a></li>
                     <li><a href="#">Каталог</a></li>
-
 
                     {% if current_user.is_authenticated %}
                     <li><a href="#">Профиль</a></li>
